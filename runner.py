@@ -9,8 +9,8 @@ from sklearn.linear_model import Ridge, LogisticRegression
 from sklearn.model_selection import RandomizedSearchCV, ParameterSampler
 from sklearn.pipeline import Pipeline, FeatureUnion
 
-from metrics import rmse
-from utils import get_search_space_fit_features
+from ads.utils.metrics import rmse
+from ads.utils.feature import get_search_space_fit_features
 
 import consts
 

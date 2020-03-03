@@ -1,4 +1,4 @@
-from ml.feature import NumFeatureDescriptor
+from ads.utils.feature import NumFeatureDescriptor
 
 
 fd = NumFeatureDescriptor('number_emergency')

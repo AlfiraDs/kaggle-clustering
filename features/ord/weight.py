@@ -1,4 +1,4 @@
-from ml.feature import CatFeatureDescriptor
+from ads.utils.feature import CatFeatureDescriptor
 from sklearn.preprocessing import OrdinalEncoder
 
 # TODO 98k Nones among 100k

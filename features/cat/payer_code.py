@@ -1,4 +1,4 @@
-from ml.feature import CatFeatureDescriptor
+from ads.utils.feature import CatFeatureDescriptor
 
 # TODO half of the data are Nones
 categories = ['MC', 'MD', 'HM', 'UN', 'BC', 'SP', 'CP', 'SI', 'DM', 'CM',

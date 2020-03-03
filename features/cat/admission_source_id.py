@@ -1,4 +1,4 @@
-from ml.feature import CatFeatureDescriptor
+from ads.utils.feature import CatFeatureDescriptor
 
 categories = ['1', '7', '2', '4', '5', '6', '20', '3', '17', '8', '9', '14',
               '10', '22', '11', '25', '13']

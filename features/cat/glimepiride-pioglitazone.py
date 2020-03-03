@@ -1,4 +1,4 @@
-from ml.feature import CatFeatureDescriptor
+from ads.utils.feature import CatFeatureDescriptor
 
 # TODO majority of one class
 categories = ['No', 'Up', 'Steady', 'Down']
