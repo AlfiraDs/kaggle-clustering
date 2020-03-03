@@ -1,6 +1,6 @@
 import os
 
-from data import Data
+from ads.ml.data import Data
 
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
