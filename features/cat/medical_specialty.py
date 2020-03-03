@@ -1,0 +1,31 @@
+from ml.feature import CatFeatureDescriptor
+
+# TODO half of the data are Nones
+categories = ['Pediatrics-Endocrinology', 'InternalMedicine',
+       'Family/GeneralPractice', 'Cardiology', 'Surgery-General',
+       'Orthopedics', 'Gastroenterology',
+       'Surgery-Cardiovascular/Thoracic', 'Nephrology',
+       'Orthopedics-Reconstructive', 'Psychiatry', 'Emergency/Trauma',
+       'Pulmonology', 'Surgery-Neuro',
+       'Obsterics&Gynecology-GynecologicOnco', 'ObstetricsandGynecology',
+       'Pediatrics', 'Hematology/Oncology', 'Otolaryngology',
+       'Surgery-Colon&Rectal', 'Pediatrics-CriticalCare', 'Endocrinology',
+       'Urology', 'Psychiatry-Child/Adolescent', 'Pediatrics-Pulmonology',
+       'Neurology', 'Anesthesiology-Pediatric', 'Radiology',
+       'Pediatrics-Hematology-Oncology', 'Psychology', 'Podiatry',
+       'Gynecology', 'Oncology', 'Pediatrics-Neurology',
+       'Surgery-Plastic', 'Surgery-Thoracic',
+       'Surgery-PlasticwithinHeadandNeck', 'Ophthalmology',
+       'Surgery-Pediatric', 'Pediatrics-EmergencyMedicine',
+       'PhysicalMedicineandRehabilitation', 'InfectiousDiseases',
+       'Anesthesiology', 'Rheumatology', 'AllergyandImmunology',
+       'Surgery-Maxillofacial', 'Pediatrics-InfectiousDiseases',
+       'Pediatrics-AllergyandImmunology', 'Dentistry', 'Surgeon',
+       'Surgery-Vascular', 'Osteopath', 'Psychiatry-Addictive',
+       'Surgery-Cardiovascular', 'PhysicianNotFound', 'Hematology',
+       'Proctology', 'Obstetrics', 'SurgicalSpecialty', 'Radiologist',
+       'Pathology', 'Dermatology', 'SportsMedicine', 'Speech',
+       'Hospitalist', 'OutreachServices', 'Cardiology-Pediatric',
+       'Perinatology', 'Neurophysiology', 'Endocrinology-Metabolism',
+       'DCPTEAM', 'Resident']
+fd = CatFeatureDescriptor('medical_specialty', categories=categories)
