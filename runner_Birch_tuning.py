@@ -11,8 +11,8 @@ from sklearn.model_selection import RandomizedSearchCV, ParameterSampler, KFold
 from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn import metrics
 
-from ads.ml.metrics import rmse
-from ads.ml.utils import get_search_space_fit_features
+from ads.utils.metrics import rmse
+from ads.utils.feature import get_search_space_fit_features
 
 import consts
 
