@@ -11,8 +11,8 @@ from sklearn.model_selection import RandomizedSearchCV, ParameterSampler, KFold
 from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn import metrics
 
-from metrics import rmse
-from utils import get_search_space_fit_features
+from ads.ml.metrics import rmse
+from ads.ml.utils import get_search_space_fit_features
 
 import consts
 
@@ -21,19 +21,15 @@ train = consts.train
 y = consts.y
 test = consts.test
 
-n_jobs = -1
+n_jobs = 1
 rs = 1
 np.random.seed(rs)
 
 
 def scoring(model, x, y):
     pred = model.predict(x)
-    df = pd.DataFrame({
-        'l': pred,
-        'c': y,
-    })
-    df['cnt'] = df.groupby(['l', 'c'])['c'].count()
-    print(model)
+    score = metrics.accuracy_score(y, pred)
+    return score
 
 
 features, fes_steps = get_search_space_fit_features(consts.FEATURES_DIR)
@@ -60,7 +56,7 @@ param_distributions = {
 
 }
 param_distributions.update(fes_steps)
-model = RandomizedSearchCV(model, param_distributions, n_iter=20, cv=5, scoring=scoring, n_jobs=n_jobs, verbose=0)
+model = RandomizedSearchCV(model, param_distributions, n_iter=20, cv=5, scoring=scoring, n_jobs=n_jobs, verbose=1)
 
 model.fit(train, y)
 print(model.best_score_)
