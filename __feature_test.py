@@ -1,6 +1,6 @@
 import os
 
-from utils import fit_transform_feature
+from ads.utils.feature import fit_transform_feature
 
 import consts
 

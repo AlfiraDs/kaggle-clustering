@@ -34,7 +34,7 @@ pipe = Pipeline(
     steps=[
         ('fes', fu),
         ('pca', PCA(n_components=5)),
-        ('model', KMeans(n_clusters=2, n_jobs=n_jobs, random_state=1, tol=1e-4)),
+        # ('model', KMeans(n_clusters=2, n_jobs=n_jobs, random_state=1, tol=1e-4)),
         # ('model', AffinityPropagation(damping=0.5, max_iter=200, convergence_iter=15, copy=True, preference=None, affinity='euclidean', verbose=False)),  # lots of ram
         # ('model', MeanShift(bandwidth=None, seeds=None, bin_seeding=False, min_bin_freq=1, cluster_all=True, n_jobs=n_jobs, max_iter=300)),
         # ('model', SpectralClustering(n_clusters=2, eigen_solver=None, n_components=None, random_state=None, n_init=10, gamma=1.0,
@@ -42,12 +42,12 @@ pipe = Pipeline(
         # ('model', AgglomerativeClustering(n_clusters=2, affinity='euclidean', memory='./cash', connectivity=None, compute_full_tree='auto', linkage='ward', distance_threshold=None)),
         # ('model', DBSCAN(eps=0.5, min_samples=5, metric='euclidean', metric_params=None, algorithm='auto', leaf_size=30, p=None, n_jobs=n_jobs)),  # no predict method
         # ('model', Birch(threshold=0.5, branching_factor=50, n_clusters=2, compute_labels=True, copy=True)),  # 0.47
-        # ('model', LogisticRegression(n_jobs=n_jobs, max_iter=1000))
+        ('model', LogisticRegression(n_jobs=n_jobs, max_iter=1000))
     ])
 param_distributions = {
-    'model__n_clusters': randint(2, 20),
+    # 'model__n_clusters': randint(2, 20),
     # 'model__n_init': randint(10, 100),
-    'model__tol': loguniform(1e-5, 1e-2),
+    # 'model__tol': loguniform(1e-5, 1e-2),
     # 'model__algorithm': ['auto', 'full', 'elkan'],
 
 }
@@ -60,7 +60,7 @@ def scoring(model, x, y):
     print(model)
 
 
-model = RandomizedSearchCV(pipe, param_distributions, n_iter=20, cv=5, scoring=scoring, n_jobs=n_jobs, verbose=0)
+model = RandomizedSearchCV(pipe, param_distributions, n_iter=1, cv=5, scoring='accuracy', n_jobs=n_jobs, verbose=0)
 # model = pipe
 # model.fit(train.sample(frac=0.1), y=None)
 
